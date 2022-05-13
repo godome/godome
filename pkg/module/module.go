@@ -2,12 +2,14 @@ package module
 
 import (
 	"github.com/godome/godome/pkg/config"
+	"github.com/godome/godome/pkg/logger"
 	"github.com/godome/godome/pkg/provider"
 )
 
 type Module interface {
 	GetName() string
 	Config() config.Config
+	Logger() logger.Logger
 	SetProvider(provider provider.Provider)
 	GetProvider(providerType provider.ProviderType) provider.Provider
 }
@@ -28,6 +30,10 @@ func NewModule(name string) Module {
 
 func (r *module) GetName() string {
 	return r.name
+}
+
+func (r *module) Logger() logger.Logger {
+	return logger.GetLogger()
 }
 
 func (r *module) Config() config.Config {

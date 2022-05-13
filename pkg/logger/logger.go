@@ -2,6 +2,10 @@ package logger
 
 var logger = newStandardLogger()
 
+func GetLogger() Logger {
+	return logger
+}
+
 func SetLogger(newLoggger Logger) {
 	logger = newLoggger
 }
