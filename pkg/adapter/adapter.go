@@ -5,10 +5,10 @@ import (
 	"github.com/godome/godome/pkg/logger"
 )
 
-type ExposureType string
+type AdapterType string
 
-type Exposure interface {
-	GetType() ExposureType
+type Adapter interface {
+	GetType() AdapterType
 	Config() config.Config
 	Logger() logger.Logger
 }
