@@ -1,4 +1,4 @@
-package exposure
+package adapter
 
 import (
 	"github.com/godome/godome/pkg/config"
