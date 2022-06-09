@@ -7,7 +7,6 @@ import (
 )
 
 type Repository interface {
-	GetName() string
 	Config() config.Config
 	Logger() logger.Logger
 	GetAdapter(adapterType adapter.AdapterType) adapter.Adapter
@@ -15,20 +14,15 @@ type Repository interface {
 }
 
 type repository struct {
-	name     string
 	config   config.Config
 	adapters map[adapter.AdapterType]adapter.Adapter
 }
 
-func NewRepository(name string) Repository {
+func NewRepository() Repository {
 	return &repository{
 		config:   config.NewConfig(),
 		adapters: make(map[adapter.AdapterType]adapter.Adapter),
 	}
-}
-
-func (r *repository) GetName() string {
-	return r.name
 }
 
 func (r *repository) Config() config.Config {
